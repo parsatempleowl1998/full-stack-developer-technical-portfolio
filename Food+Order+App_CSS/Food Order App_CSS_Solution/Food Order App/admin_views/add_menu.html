@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Menu</title>
+    <link rel="stylesheet" href="../admin_styles/style.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main">
+        
+        <div class="container">
+            <form action="" name="addMenuForm" id="form1">
+                <h1>Update Menu</h1>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <label for="restaurant">Select Restaurant</label><br>
+                        <select name="restaurant" id="restaurant">
+                            <option value="1">Food Town</option>
+                            <option value="2">Green Leaf Hotel</option>
+                            <option value="3">Kignston Hotel</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <table id="foodtable">
+                        <tbody id="fooditems">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Veg pizza" id="1"></td>
+                                    <td><img src="https://www.themealdb.com//images//media//meals//x0lk931587671540.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="1">Veg Pizza</label></td>
+                                    <td><input type="number" class="foodprice" name="price1" id="price1" value="5"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="Hot & sour soup" id="2"></td>
+                                    <td><img src="https://www.themealdb.com/images/media/meals/1529445893.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="2">Hot &amp; Sour Soup</label></td>
+                                    <td><input type="number" class="foodprice" name="price2" id="price2" value="9"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="Lasagna sandwich" id="3"></td>
+                                    <td><img src="https://www.themealdb.com/images/media/meals/xr0n4r1576788363.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="3">Lasagna Sandwich</label></td>
+                                    <td><input type="number" class="foodprice" name="price3" id="price3" disabled=""></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="Chick-Fil-A-Sandwich" id="4"></td>
+                                    <td><img src="https://www.themealdb.com/images/media/meals/sbx7n71587673021.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="4">Chick-Fil-A-Sandwich</label></td>
+                                    <td><input type="number" class="foodprice" name="price4" id="price4" value="7"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="Grilled mac cheese sandwich" id="5"></td>
+                                    <td><img src="https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="5">Grilled Mac &amp; Cheese Sandwich</label></td>
+                                    <td><input type="number" class="foodprice" name="price5" id="price5" disabled=""></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="Italian pasta salad" id="6"></td>
+                                    <td><img src="https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="6">Italian Pasta Salad</label></td>
+                                    <td><input type="number" class="foodprice" name="price6" id="price6" value="8"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="Creamy tomato soup" id="7"></td>
+                                    <td><img src="https://www.themealdb.com/images/media/meals/stpuws1511191310.jpg" style="width:50px;padding:10px"></td>
+                                    <td><label for="7">Creamy Tomato Soup</label></td>
+                                    <td><input type="number" class="foodprice" name="price7" id="price7" disabled=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="reset" class="discard">Discard</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="save">Add To Menu</button><br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body></html>
