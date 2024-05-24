@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add FoodItem</title>
+    <script src="../admin_js/adminfoodItems.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+   
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main">
+        <div class="container">
+            <form name="addFoodItemForm" action="" onsubmit="event.preventDefault(); addFoodItem();">
+                <h1>Add FoodItem</h1>
+                <hr>
+                <table>
+                    <tr><th colspan="2">FoodItem Information</th></tr>
+                    <tr>
+                        <td><label for="fname">FoodItem Name :</label></td>
+                        <td><input class="form-control" type="text" name="fname" id="fname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="desc">FoodItem Description :</label></td>
+                        <td><textarea class="form-control" name="desc" id="desc" cols="30" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="instock">Available?</label></td>
+                        <td><input class="form-check-input" type="checkbox" name="instock" id="instock" value="yes"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="isVeg">Vegeterian?</label></td>
+                        <td><input class="form-check-input" type="checkbox" name="isVeg" id="isVeg" value="yes"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="category">Category :</label></td>
+                        <td><select class="form-select" name="category" id="category" onfocus = "loadCategories();">
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cuisine">Cuisine :</label></td>
+                        <td><select class="form-select" name="cuisine" id="cuisine" onfocus = "loadCuisines();">
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="foodimg">Image URL :</label></td>
+                        <td><input class="form-control" type="url" name="foodimg" id="foodimg" required></td>
+                    </tr>
+                    <tr>
+                        <td><button type="reset" class="discard" onclick="window.history.back();">Discard</button></td>
+                        <td><button type="submit" class="save">Save</button></td>
+                    </tr>
+                </table>             
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+    
+</body>
+</html>
