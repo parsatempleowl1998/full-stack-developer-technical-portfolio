@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cuisine</title>
+    <link rel="stylesheet" href="../admin_styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="../admin_js/admincuisine.js"></script>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main">
+        <div class="container">
+            <form action="" name="addCuisineForm" id="form1" onsubmit="event.preventDefault(); addCuisine();">
+                <h1>Add Cuisine</h1>
+                <hr>
+                <!--  -->
+                <table>
+                    <tr>
+                        <td><label for="cuisine">Cuisine Name:</label></td>
+                        <td><input type="text" name="cuisine" id="cuisine" required></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label for="desc">Cuisine Description:</label></td>
+                        <td><textarea name="desc" id="desc" cols="30" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cuisineimg">Image URL :</label></td>
+                        <td><input class="form-control" type="url" name="cuisineimg" id="cuisineimg" required></td>
+                    </tr>                
+                    <tr>
+                        <td><label for="isActive">Is Active</label></td>
+                        <td><input type="checkbox" name="isActive" id="isActive"></td>
+                    </tr>
+                    <tr>
+                        <td><button type="reset" class="discard" onclick="window.history.back()">Discard</button></td>
+                        <td><button type="submit" class="save">Save</button></td>
+                    </tr>
+                </table>          
+                
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
+
