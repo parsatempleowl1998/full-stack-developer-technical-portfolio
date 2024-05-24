@@ -1,0 +1,67 @@
+/* Add some basic styling */
+body {
+    font-family: Arial, sans-serif;
+  }
+
+  .product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 70%;
+  }
+
+  .product img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+  }
+
+  .product .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product .info .name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .product .info .price {
+    color: green;
+  }
+
+  .review {
+    margin-bottom: 20px;
+  }
+
+  .review .user {
+    font-weight: bold;
+  }
+
+  .quantity {
+    margin-right:16px
+  }
+  .ticker-container {
+    background-color: #efe5e52e;
+    padding: 10px;
+    overflow: hidden;
+    font-size: 16px;
+    border-radius: 10%;
+    color:#00809a;
+    position: relative;
+  }
+  
+  .ticker {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    position:relative;
+  }
+  
+  .ticker-item {
+    display: inline-block;
+    padding-right: 20px;
+  }
