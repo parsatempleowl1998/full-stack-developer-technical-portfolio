@@ -1,0 +1,43 @@
+/* Add some basic styling */
+body {
+    font-family: Arial, sans-serif;
+  }
+
+  .product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 70%;
+  }
+
+  .product img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+  }
+
+  .product .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product .info .name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .product .info .price {
+    color: green;
+  }
+
+  .review {
+    margin-bottom: 20px;
+  }
+
+  .review .user {
+    font-weight: bold;
+  }
+
+  .quantity {
+    margin-right:16px
+  }
