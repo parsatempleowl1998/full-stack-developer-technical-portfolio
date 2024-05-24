@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            background-image: linear-gradient(to bottom right, azure, rgb(230, 245, 244));
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+       .container{
+        font-family: 'Poppins', sans-serif;
+       }
+       input:hover, textarea:hover, select:hover{
+        background-color: azure;
+       }
+       button{
+        background-color: rgb(157, 226, 226);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 80px;
+        height: 30px;
+        font-size: 20px;
+        margin-top: 20px;
+        }
+        button:hover{
+            background-color: rgb(134, 189, 189);
+            border-style: double;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main">
+        <div class="container">
+            <form action="" id="form1" onload="load()" onsubmit="event.preventDefault(); handleSubmit();">
+                <h1>Add Category</h1>
+                <hr>
+                <!--  -->
+                <table>
+                    <tr>
+                        <td><label for="category">Category Name:</label></td>
+                        <td><input type="text" name="category" id="category" required></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label for="desc">Category Description:</label></td>
+                        <td><textarea name="desc" id="desc" cols="30" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="products">Products Tagged:</label></td>
+                        <td><ul id="productlist">
+                              
+                        </ul>
+                           
+                        </select></td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><label for="is_available">Is Active</label></td>
+                        <td><input type="checkbox" name="is_available" id="is_available"></td>
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td><button type="reset" class="discard">Discard</button>
+                            <button type="submit" class="save">Save</button>
+                        </td>
+                    </tr>
+                </table>          
+                
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+    <script>
+        var categoryId;
+        // First step: Creating the category list 
+        var completelist= document.getElementById("categorylist");
+        for(let i=0; i<localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key.startsWith("category")){
+                    desc = localStorage.getItem(key);
+              
+                var a = key.slice(8,9);
+                const map = new Map(Object.entries(JSON.parse(desc)));
+                name = map.get(a).name;
+                option = document.createElement("option");
+                option.value = name;
+                option.innerHTML = name;
+                completelist.appendChild(option);
+                }   
+        }        
+                              
+        
+        
+        // Second step: Category Selection and Event Handling
+        const select = document.getElementById('categorylist');
+        var selectedOption;
+        function handleChange() {
+            selectedOption = select.options[select.selectedIndex].text;  
+            categorykey = populate();
+        };
+       
+        select.addEventListener('change', handleChange);
+
+        // Third Step: Populate the form according to the category selected
+        function populate(){
+            prod_list = document.getElementById("productlist");
+            while(prod_list.firstChild){
+                prod_list.firstChild.remove();
+            }
+            for(let i=0; i<localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key.startsWith("category")){
+                    desc = localStorage.getItem(key);
+                   
+                var a = key.slice(8,9);
+                const map = new Map(Object.entries(JSON.parse(desc)));
+                name = map.get(a).name;
+                const select = document.getElementById('categorylist').value;
+                if (name == select){
+                    categoryId = map.get(a).id;
+                    desc = map.get(a).description;
+                    is_available = map.get(a).is_available;
+                    document.getElementById("desc").value = desc;
+                   
+                    // Fourth Step: Populating Product List according to the category selected
+                    for(let i=0; i<localStorage.length; i++) {
+                        let key = localStorage.key(i);
+                        if (key.startsWith("product")){
+                            desc = localStorage.getItem(key);
+                            var a = key.slice(7,8);
+                            const map = new Map(Object.entries(JSON.parse(desc)));
+                            category_mapped = map.get(a).category;
+                            if (category_mapped == select){
+                                console.log('Prod', map.get(a).title);
+                                prod_list = document.getElementById("productlist");
+                                listItem = document.createElement("li");
+                                listItem.innerHTML = map.get(a).title;
+                                prod_list.appendChild(listItem);  
+                                    }
+                            
+                    }
+                    }
+                     
+                    document.getElementById("is_available").value = is_available;
+                    }
+                    
+                
+        }    
+    }
+}
+
+// Submission of Form
+function handleSubmit() {
+            
+            category = new Map();
+            console.log(categoryId);
+            name = document.getElementById("categorylist").value;
+            description = document.getElementById("desc").value;
+            check_is_available = document.getElementById("is_available");
+            if (check_is_available.checked == true){
+                is_available = "yes"
+            }
+            else{
+                is_available = "no";
+            }
+            category.set("" + categoryId, {"id": categoryId,
+                                           "name": name,
+                                           "description": description, 
+                                           "is_available": is_available
+                                        });
+            let categoryData = JSON.stringify(Object.fromEntries(category));
+            
+            window.localStorage.setItem("category"+categoryId,categoryData);
+            
+  }  
+    </script>
+</body>
+</html>
+
